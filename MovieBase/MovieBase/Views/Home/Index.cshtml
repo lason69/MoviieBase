@@ -16,7 +16,8 @@
 </header>
 
 <div id="main-content">
-@if (@User.Identity.IsAuthenticated)
+    @Html.Partial("_Login")
+@*@if (@User.Identity.IsAuthenticated)
 {
     <p class="error" data-bind="text: error"></p>
     <input id="antiForgeryToken" type="hidden" value="@GetAntiForgeryToken()" />
@@ -67,7 +68,7 @@ else
         @Html.Partial("_Register")
         <p>Already signed up? <a id="showLogin">Log in</a></p>
     </div>
-}
+}*@
 </div>
 
 @if (@User.Identity.IsAuthenticated)

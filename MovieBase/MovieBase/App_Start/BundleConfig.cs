@@ -23,6 +23,8 @@ namespace MovieBase
 
             bundles.Add(new ScriptBundle("~/bundles/ajaxlogin").Include(
                 "~/Scripts/app/ajaxlogin.js"));
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                "~/Scripts/angular.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/todo").Include(
                 "~/Scripts/app/todo.bindings.js",

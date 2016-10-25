@@ -1,30 +1,17 @@
-﻿@model MovieBase.Models.LoginModel
+﻿<!doctype html>
+<html ng-app="app">
 
-@using (Html.BeginForm("JsonLogin", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "loginForm" }))
-{
-    @Html.AntiForgeryToken()
-
-    <fieldset>
-        <legend>Log in Form</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName, new { autofocus = "autofocus", id = "loginName" })
-                @Html.ValidationMessageFor(m => m.UserName)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)
-                @Html.ValidationMessageFor(m => m.Password)
-            </li>
-            <li>
-                @Html.CheckBoxFor(m => m.RememberMe)
-                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
-            </li>
-            <li>
-                <input type="submit" value="Log in" />
-            </li>
-        </ol>
-        @Html.ValidationSummary() 
-    </fieldset>
-}
+<body ng-controller="MovieController">
+    <div>
+        <label>Name:</label>
+        <input type="text" ng-model="yourName" placeholder="Enter a name here">
+        <hr>
+        <div ng-repeat="one in bag">
+            <h1>Review {{$index}}:<p><img ng-src="{{'http://image.tmdb.org/t/p/w185/'+one.poster_path}}" /></p> {{one.overview}} </h1>
+        </div>
+    @*<img ng-src="{{imageURL}}">*@ 
+    </div>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Vlayer/controllers/App.js"></script>
+</body>
+</html>
