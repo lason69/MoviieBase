@@ -29,5 +29,19 @@
  }
  ])
 
+ angular.module("app").controller('PopularController',['$scope', '$http', function ($scope, $http){
+     $http.get('https://api.themoviedb.org/3/movie/popular?api_key=bc246856648f34ccdf9aef4b69a26470&language=en-US').
+             then(function (data) {
+
+                 console.log("nowa");
+                     console.log(data.data);
+                 $scope.Popular = data.data.results[0].overview;
+                 $scope.bag = data.data.results;
+
+                 // $scope.imageURL ='http://image.tmdb.org/t/p/w185/'+ data.data.results[0].poster_path;
+             }, function () {
+             });
+}
+    ])
 
 })();

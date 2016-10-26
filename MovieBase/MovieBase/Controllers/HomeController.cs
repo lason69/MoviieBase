@@ -13,5 +13,10 @@ namespace MovieBase.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
+        public ActionResult Popular()
+        {
+           
+            return View();
+        }
     }
 }

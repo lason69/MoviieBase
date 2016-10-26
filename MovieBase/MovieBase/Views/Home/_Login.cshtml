@@ -4,10 +4,10 @@
 <body ng-controller="MovieController">
     <div>
         <label>Name:</label>
-        <input type="text" ng-model="yourName" placeholder="Enter a name here">
+        @*<input type="text" ng-model="yourName" placeholder="Enter a name here">*@
         <hr>
         <div ng-repeat="one in bag">
-            <h1>Review {{$index}}:<p><img ng-src="{{'http://image.tmdb.org/t/p/w185/'+one.poster_path}}" /></p> {{one.overview}} </h1>
+            Review {{$index}}:<p><img ng-src="{{'http://image.tmdb.org/t/p/w185/'+one.poster_path}}" /></p> {{one.overview}} 
         </div>
     @*<img ng-src="{{imageURL}}">*@ 
     </div>
