@@ -1,0 +1,28 @@
+﻿<!doctype html>
+<html ng-app="app">
+<head>
+    <title>Top Rated</title>
+</head>
+<body ng-controller="MovieController">
+    <div class="row"><center><b>Top Rated</b></center></div><br /><br />
+    <div class="row">
+        <hr>
+        <div ng-repeat="one in bag">
+            <div class="row">
+                <div class="col-sm-4">
+                    {{$index+1}}:<img class="titleImage gallery-image fade-animation" ng-src="{{'http://image.tmdb.org/t/p/w185/'+one.poster_path}}" ng-click="go('@Url.Action("Movie", "Home")?name=' + one.id)" />
+                    <br />
+                </div>
+                <div class="col-sm-6">
+                    {{one.overview}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Vlayer/controllers/App.js"></script>
+
+
+</body>
+</html>

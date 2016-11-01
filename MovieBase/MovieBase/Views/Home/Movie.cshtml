@@ -1,0 +1,32 @@
+﻿<!doctype html>
+<html ng-app="app">
+<head>
+    <title>Movie</title>
+
+</head>
+<body ng-controller="OneMovieController">
+    <h1 hidden>{{MovieID=@ViewData["MovieID"]}}</h1> 
+    <div class="row" style="margin-bottom:20px;font-size:large">
+        <center>
+            {{Movie.title}}
+        </center>
+        
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+          
+            <img class=" gallery-image fade-animation" ng-src="{{'http://image.tmdb.org/t/p/w300/'+Movie.backdrop_path}}" />
+           
+        </div>
+        <div class="col-sm-8">
+            {{Movie.overview}}
+        </div>
+
+
+
+
+    </div>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Vlayer/controllers/App.js"></script>
+</body>
+</html>

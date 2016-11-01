@@ -15,7 +15,18 @@ namespace MovieBase.Controllers
         }
         public ActionResult Popular()
         {
-           
+
+            return View();
+        }
+         [HttpGet]
+        public ActionResult Movie(string name)
+        {
+            ViewData["MovieID"] = name;
+            return View();
+        }
+        public ActionResult TopMovies()
+        {
+
             return View();
         }
     }
