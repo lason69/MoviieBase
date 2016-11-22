@@ -1,0 +1,40 @@
+﻿.MovieTitle {
+    margin-bottom: 20px;
+    font-size: large;
+    font-weight: bold;
+}
+
+.headlines {
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: medium;
+}
+
+.dirgen {
+    display: inline;
+    font-weight: 200;
+}
+
+.overviewHeadline {
+    font-weight: bold;
+    font-size: medium;
+}
+
+.personPicture {
+    width: 80px;
+    height: 100px;
+}
+
+.personList {
+    margin-top: 10px;
+    display: inline;
+}
+
+.personName {
+    margin-bottom: 5px;
+    font-weight: 200;
+}
+
+.overview {
+    font-size: large;
+}

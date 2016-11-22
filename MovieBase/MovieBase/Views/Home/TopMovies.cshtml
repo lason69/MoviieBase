@@ -10,7 +10,7 @@
         <div ng-repeat="one in bag">
             <div class="row">
                 <div class="col-sm-4">
-                    {{$index+1}}:<img class="titleImage gallery-image fade-animation" ng-src="{{'http://image.tmdb.org/t/p/w185/'+one.poster_path}}" ng-click="go('@Url.Action("Movie", "Home")?name=' + one.id)" />
+                    {{$index+1}}:<img class="titleImage gallery-image fade-animation" ng-src="{{'http://image.tmdb.org/t/p/w185/'+one.poster_path}}" ng-click="go(one.id)" />
                     <br />
                 </div>
                 <div class="col-sm-6">

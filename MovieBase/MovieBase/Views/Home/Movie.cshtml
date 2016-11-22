@@ -1,32 +1,70 @@
 ﻿<!doctype html>
-<html ng-app="app">
+<html ng-app="app" >
 <head>
-    <title>Movie</title>
+    <title>@ViewData["MovieID"]</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="~/Content/Movie.css" />
 
 </head>
-<body ng-controller="OneMovieController">
-    <h1 hidden>{{MovieID=@ViewData["MovieID"]}}</h1> 
-    <div class="row" style="margin-bottom:20px;font-size:large">
-        <center>
-            {{Movie.title}}
-        </center>
-        
-    </div>
+<body ng-controller="OneMovieController" ng-cloak>
+    <h1 hidden>{{MovieID=@ViewData["MovieID"]}}</h1>
+
     <div class="row">
-        <div class="col-sm-4">
-          
-            <img class=" gallery-image fade-animation" ng-src="{{'http://image.tmdb.org/t/p/w300/'+Movie.backdrop_path}}" />
-           
-        </div>
         <div class="col-sm-8">
+
+            <img class="gallery-image fade-animation img-rounded" ng-src="{{'http://image.tmdb.org/t/p/w600/'+Movie.backdrop_path}}" />
+
+        </div>
+        <div class="col-sm-4 overview">
+            <div class="row MovieTitle">
+                {{Movie.title}} ({{Movie.release_date.slice(0,4)}})
+                <br />
+                <div class="headlines">
+                    Director: <div class="dirgen">{{Crew[0].name}}</div><br />
+                    Genres: <div class="dirgen" ng-repeat="genre in Movie.genres">
+                        [{{genre.name}}]
+                    </div>
+
+                </div>
+            </div>
+            <div class="overviewHeadline">
+                Overview
+            </div>
             {{Movie.overview}}
         </div>
 
 
+    </div>
+    <div class="row personList">
 
+        <div ng-repeat="person in getCast()">
+            <div class="col-sm-2">
+
+                <img class="img-rounded personPicture" ng-src="{{'http://image.tmdb.org/t/p/w300/'+person.profile_path}}" /><br />
+                <label class="personName"> {{person.name}}</label><br />
+                <label>{{person.character}}</label>
+            </div>
+        </div>
 
     </div>
+
+    <button type="button" class="btn btn-default" style="width:100%;text-align:center" data-toggle="collapse" data-target="#moreCast" ng-click="getRestCast()">
+        <span class="glyphicon" ng-class="{'glyphicon-chevron-up' : collapsed, 'glyphicon-chevron-down' : !collapsed}"></span>
+    </button>
+
+    <div id="moreCast" class="row personList collapse">
+        <div ng-repeat="person in RestCast">
+            <div class="col-sm-2">
+                <img class="img-rounded personPicture" ng-src="{{'http://image.tmdb.org/t/p/w300/'+person.profile_path}}" /><br />
+                <label class="personName"> {{person.name}}</label><br />
+                <label>{{person.character}}</label>
+            </div>
+        </div>
+    </div>
+
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Vlayer/controllers/App.js"></script>
 </body>
-</html>
+</html> 

@@ -21,6 +21,7 @@ namespace MovieBase.Controllers
          [HttpGet]
         public ActionResult Movie(string name)
         {
+
             ViewData["MovieID"] = name;
             return View();
         }
